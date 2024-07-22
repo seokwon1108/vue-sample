@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { SampleService } from "../service";
-import { TodoList } from "../types";
+import { TodoItem, TodoList } from "../types";
 
 const sampleService = new SampleService();
 
@@ -17,6 +17,12 @@ export const useSampleStore = defineStore("sampleStore", {
 
       // 2. 상태관리가 필요 없다면 조회된 결과 return
       return response.data;
+    },
+
+    async creatTodo(todo: Omit<TodoItem, "id">) {
+      const response = await sampleService.createTodo(todo);
+
+      return response;
     },
   },
 });

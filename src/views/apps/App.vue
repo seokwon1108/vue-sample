@@ -1,12 +1,24 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/table-grid">Table Grid</router-link>
+  <div class="flex flex-col">
+    <nav class="pb-5">
+      <router-link class="border p-5 hover:bg-slate-400 hover:text-white" to="/"
+        >Home</router-link
+      >
+      <router-link
+        class="border p-5 hover:bg-slate-400 hover:text-white"
+        to="/about"
+        >About</router-link
+      >
+      <router-link
+        class="border p-5 hover:bg-slate-400 hover:text-white"
+        to="/table-grid"
+        >Table Grid</router-link
+      >
     </nav>
-    <el-button> 테스트 </el-button>
-    <router-view />
+
+    <div class="flex flex-col flex-1">
+      <router-view class="h-full" />
+    </div>
   </div>
 </template>
 

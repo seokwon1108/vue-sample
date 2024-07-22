@@ -1,6 +1,6 @@
 import axios from "axios";
 
-type PropsType = object | Array<any> | null;
+type PropsType = string | object | Array<any> | null;
 
 export const instance = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
@@ -11,4 +11,8 @@ export const reqGET = async (path: string, params: PropsType = null) =>
   await instance.request({ method: "GET", url: path, params });
 
 export const reqPOST = async (path: string, body: PropsType = null) =>
-  await instance.request({ method: "POST", url: path, data: body });
+  await instance.request({
+    method: "POST",
+    url: path,
+    data: JSON.stringify(body),
+  });
